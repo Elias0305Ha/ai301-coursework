@@ -13,8 +13,66 @@ https://github.com/codepath/pathreview-ai301-fa26-s1/issues/13
 **Verdict output**
 
 ```
-[PASTE YOUR FULL LIVE-MODE TERMINAL OUTPUT HERE, from "Evidence gathered
-(live mode..." through the closing JSON block, verbatim]
+Evidence gathered (live mode, repo codepath/pathreview-ai301-fa26-s1, graded 2026-09-22)
+
+Shared repo-level facts — all three sit in the scoped Path Review repo:
+- maintainer-responsive: pass — Aburke225 (author_association COLLABORATOR) commented on #43 and #52 on 2026-09-16, 6 days ago. No PR has merged to main (only open PR is #74), but the rubric requires only one branch of the OR.
+- repo-active: pass — latest main commit 2026-09-16 ("chore: track five more manifest entries against the tracker"), 6 days before capture; repo not archived.
+- policy-open: pass — docs/CONTRIBUTING.md requires fork → branch convention → green CI, with no CLA, no team-member restriction, no pre-approval, and no AI-contribution ban.
+- unclaimed: pass on all three — zero assignees, zero comments, no linked or mentioned PRs on any of the three. (#13's only cross-reference is a comment on issue #43, not a PR.) The Path Review house rule makes classmate claims non-blocking regardless.
+
+Per-issue scope:
+- #13 — names three paths, but tests/fixtures/sample_profiles/basic_profile.json already exists in the repo (confirmed via contents API; #43's closing comment: "the profile fixture and the sample resumes were added as shared test infrastructure… Issues #5, #13 and #14 build on those files"). It is read, not changed. Two files actually change: a new tests/integration/test_rag_pipeline.py and an injection seam in review_generator.py. Pass. tier-2, 4–6 hours.
+- #8 — two files (review_generator.py, prompt_templates.py), no design disagreement in thread (empty thread). Pass.
+- #10 — two files (new reranker.py, hybrid.py). Pass.
+
+scope-labeled fails on all three: the repo uses tier-1/2/3 and topic labels, none of which match good first issue/beginner/help wanted. Preferred only, so no verdict effect.
+
+Tension worth naming: the rubric's scope-bounded check counts files only, so #8 and #10 pass despite being tier-3 and 7–10 hours of estimated effort — #10 is greenfield feature design, not a bounded fix. If that matters to you, the fix belongs in rubric.md (add an effort/tier threshold), not in this run's grades.
+
+Ranked (all accepted), by your fit profile:
+1. #13 — pytest integration test against a mock LLM. Directly in your strongest lane (pytest suites, LLM integration, dependency injection), the only tier-2, and the smallest at 4–6 hours, so it is actually finishable while teaching you the RAG pipeline end to end.
+2. #8 — Python bug fix in generation/prompt code; LLM tooling you want, but tier-3 and 7–10 hours.
+3. #10 — LLM re-ranking feature; squarely in AI/ML engineering but greenfield design at tier-3, the least bounded of the three for a first contribution.
+
+[
+  {
+    "item": "https://github.com/codepath/pathreview-ai301-fa26-s1/issues/13",
+    "checks": [
+      {"name": "maintainer-responsive", "grade": "pass", "evidence": "Aburke225 (COLLABORATOR) commented on issues #43 and #52 on 2026-09-16, 6 days before capture (within 90 days)"},
+      {"name": "repo-active", "grade": "pass", "evidence": "Latest commit to default branch main: 2026-09-16T21:42:18Z, 6 days before capture (within 60 days)"},
+      {"name": "unclaimed", "grade": "pass", "evidence": "assignees: [], zero comments, no linked PRs; only timeline cross-reference is issue #43, not a PR"},
+      {"name": "scope-bounded", "grade": "pass", "evidence": "Three paths listed but basic_profile.json already exists in repo, so only 2 files change: new test_rag_pipeline.py plus an injection seam in review_generator.py"},
+      {"name": "policy-open", "grade": "pass", "evidence": "docs/CONTRIBUTING.md states fork/branch/CI requirements only: no CLA, no team-only rule, no pre-approval, no AI ban"},
+      {"name": "scope-labeled", "grade": "fail", "evidence": "Labels are enhancement, devops, rag, tests, tier-2 - none matching good first issue/beginner/help wanted"}
+    ],
+    "verdict": "accept"
+  },
+  {
+    "item": "https://github.com/codepath/pathreview-ai301-fa26-s1/issues/8",
+    "checks": [
+      {"name": "maintainer-responsive", "grade": "pass", "evidence": "Aburke225 (COLLABORATOR) commented on issues #43 and #52 on 2026-09-16, 6 days before capture (within 90 days)"},
+      {"name": "repo-active", "grade": "pass", "evidence": "Latest commit to default branch main: 2026-09-16T21:42:18Z, 6 days before capture (within 60 days)"},
+      {"name": "unclaimed", "grade": "pass", "evidence": "assignees: [], zero comments, no linked or mentioned PRs in timeline"},
+      {"name": "scope-bounded", "grade": "pass", "evidence": "Body names 2 files (rag/generator/review_generator.py, rag/generator/prompt_templates.py); empty thread so no maintainer disagreement"},
+      {"name": "policy-open", "grade": "pass", "evidence": "docs/CONTRIBUTING.md states fork/branch/CI requirements only: no CLA, no team-only rule, no pre-approval, no AI ban"},
+      {"name": "scope-labeled", "grade": "fail", "evidence": "Labels are rag and tier-3 - none matching good first issue/beginner/help wanted"}
+    ],
+    "verdict": "accept"
+  },
+  {
+    "item": "https://github.com/codepath/pathreview-ai301-fa26-s1/issues/10",
+    "checks": [
+      {"name": "maintainer-responsive", "grade": "pass", "evidence": "Aburke225 (COLLABORATOR) commented on issues #43 and #52 on 2026-09-16, 6 days before capture (within 90 days)"},
+      {"name": "repo-active", "grade": "pass", "evidence": "Latest commit to default branch main: 2026-09-16T21:42:18Z, 6 days before capture (within 60 days)"},
+      {"name": "unclaimed", "grade": "pass", "evidence": "assignees: [], zero comments, timeline shows only label events - no linked PRs"},
+      {"name": "scope-bounded", "grade": "pass", "evidence": "Body names 2 files (new rag/retriever/reranker.py, rag/retriever/hybrid.py); empty thread so no maintainer disagreement"},
+      {"name": "policy-open", "grade": "pass", "evidence": "docs/CONTRIBUTING.md states fork/branch/CI requirements only: no CLA, no team-only rule, no pre-approval, no AI ban"},
+      {"name": "scope-labeled", "grade": "fail", "evidence": "Labels are enhancement, rag, tier-3 - none matching good first issue/beginner/help wanted"}
+    ],
+    "verdict": "accept"
+  }
+]
 ```
 
 ---
