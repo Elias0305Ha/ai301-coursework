@@ -66,10 +66,9 @@ The wiring test (`gh issue comment --help` through Claude Code) ran unblocked th
 
 The ship-gate had the same Bash-only hook gap as my voice guard, so before trusting it I widened its matcher to `Bash|PowerShell` and changed `check_gate.py` line 1369; a fresh session then stopped `gh pr create --help` with `ship-gate: STOP.` My manifest runs a link check and the repo's PR declaration tests, with the Python checks moved to the excluded table because their dependencies are not installed and the change touches no Python. The first gate run stopped my branch: pr-precheck failed plan-fidelity (a sentence in my diff that was not in plan.md) and standards-met (an unticked review box), so I recorded the deviation in plan.md and the PR description, re-ran plan-check, and the second run passed. Then my voice guard blocked the PR itself three times for posting conclusions I reached by reading code instead of running it; I reworded one line, then cut the unconfirmed follow-ups section and a code-read validation bullet, and PR #12 went through.
 
-**Unit 8: [one line on the tool work]**
+**Unit 8: Wrote my playbook from LocalMind's own rules and ran the PR monitor on PR #12**
 
-[2-4 sentences: the PR-monitor and your playbook. What it read, what it
-drafted, what you did with the draft.]
+My playbook sets an 8-day first-review threshold from CONTRIBUTING.md's "one polite follow-up after a week" plus a day; I could not sample five merged outside PRs because LocalMind has none yet, so the rule says that instead of inventing a number. The monitor read PR #12 (opened minutes earlier, no checks reported, merge state UNSTABLE, no comments) and drafted a wait note, not a nudge, with my threshold date of 2026-11-19, so I posted nothing. It also caught a flaw in my own nudge rule: it required saying "CI is green", but CI had not run, since first-time contributor workflows wait for maintainer approval. I rewrote that rule to state the actual CI state and never claim green unless the Checks tab shows it.
 
 ---
 
